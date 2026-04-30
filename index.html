@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Institute Name] | Igniting Potential, Delivering Results</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Easy to swap these out for the client's brand colors
+                        brandDark: '#0f172a',    // Deep Slate
+                        brandPrimary: '#4f46e5', // Indigo
+                        brandAccent: '#f59e0b',  // Amber/Gold for highlights
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 selection:bg-brandPrimary selection:text-white">
+
+    <!-- Top Action Bar -->
+    <div class="bg-brandDark text-gray-300 py-2 px-4 text-xs md:text-sm flex justify-between items-center z-50 relative">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <div class="flex gap-4">
+                <span><i class="fa-solid fa-phone mr-1 text-brandAccent"></i> +91 98765 43210</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-envelope mr-1 text-brandAccent"></i> admissions@[institute].com</span>
+            </div>
+            <div>
+                <a href="#enquiry" class="font-semibold text-brandAccent hover:text-white transition">Admissions Open 2026-27 &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-12 h-12 bg-brandDark rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">
+                        LOGO
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-2xl text-brandDark tracking-tight leading-none">[Institute Name]</h1>
+                        <span class="text-xs text-brandPrimary font-semibold tracking-widest uppercase">Academy</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-medium text-gray-600">
+                    <a href="#" class="hover:text-brandPrimary transition">Home</a>
+                    <a href="#courses" class="hover:text-brandPrimary transition">Courses</a>
+                    <a href="#results" class="hover:text-brandPrimary transition">Results</a>
+                    <a href="#enquiry" class="bg-brandPrimary text-white px-6 py-2.5 rounded-full hover:bg-indigo-700 shadow-md shadow-indigo-200 transition transform hover:-translate-y-0.5">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-brandDark overflow-hidden">
+        <!-- Background Pattern/Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-brandDark via-[#1e1b4b] to-brandDark opacity-90"></div>
+        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-brandPrimary opacity-20 blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:flex lg:items-center lg:gap-12">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-900/50 border border-brandPrimary/30 text-brandAccent text-sm font-semibold tracking-wide mb-4">
+                    Rank #1 Institute in the Region
+                </span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                    Engineering Your <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandPrimary to-blue-400">Future Success.</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    Expert faculty, cutting-edge study material, and a proven track record. Join [Institute Name] and secure your top rank in competitive examinations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#enquiry" class="bg-brandPrimary hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg text-center transition shadow-lg shadow-indigo-500/30">
+                        Book Free Demo Class
+                    </a>
+                    <a href="#courses" class="bg-transparent border border-gray-500 hover:border-white text-white font-bold py-3 px-8 rounded-lg text-center transition">
+                        Explore Courses
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image/Graphic Placeholder -->
+            <div class="lg:w-1/2 mt-12 lg:mt-0 hidden md:block">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-700 bg-gray-800 aspect-[4/3] flex items-center justify-center">
+                    <i class="fa-solid fa-graduation-cap text-6xl text-gray-600 mb-4 absolute"></i>
+                    <p class="text-gray-500 font-medium z-10 mt-16">High-Quality Class/Campus Image Here</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats/Trust Bar -->
+    <section class="bg-brandPrimary text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-indigo-400/30">
+                <div>
+                    <h4 class="text-3xl font-extrabold mb-1">5000+</h4>
+                    <p class="text-indigo-100 text-sm font-medium">Students Selected</p>
+                </div>
+                <div>
+                    <h4 class="text-3xl font-extrabold mb-1">50+</h4>
+                    <p class="text-indigo-100 text-sm font-medium">Expert Faculties</p>
+                </div>
+                <div>
+                    <h4 class="text-3xl font-extrabold mb-1">Top 10</h4>
+                    <p class="text-indigo-100 text-sm font-medium">All India Ranks</p>
+                </div>
+                <div>
+                    <h4 class="text-3xl font-extrabold mb-1">10+</h4>
+                    <p class="text-indigo-100 text-sm font-medium">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-extrabold text-brandDark mb-4">The [Institute Name] Advantage</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">We don't just teach; we mentor. Here is why top toppers choose us for their preparation.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-sm flex items-center justify-center text-brandPrimary text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brandDark mb-3">Elite Faculty</h4>
+                    <p class="text-gray-600 leading-relaxed">Learn from India's top educators with decades of experience in producing rankers.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-sm flex items-center justify-center text-brandAccent text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brandDark mb-3">Smart Study Material</h4>
+                    <p class="text-gray-600 leading-relaxed">Highly researched, updated modules covering every concept from basic to advanced levels.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-xl shadow-sm flex items-center justify-center text-green-500 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brandDark mb-3">Rigorous Testing</h4>
+                    <p class="text-gray-600 leading-relaxed">Weekly mock tests mimicking real exam patterns with deep AI-driven performance analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission / Lead Generation Form Section (Crucial for Pitch) -->
+    <section id="enquiry" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                
+                <!-- Left Side: Copy -->
+                <div class="md:w-5/12 bg-brandDark p-10 text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Cg%3E%3C/svg%3E')]"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-extrabold mb-4">Start Your Journey Today.</h3>
+                        <p class="text-gray-300 mb-8">Fill out the form to get a callback from our academic counselors. Limited seats available for the upcoming batches.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandAccent"></i> Free Career Counseling</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandAccent"></i> Scholarship Up To 90%</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brandAccent"></i> Campus Tour Available</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="md:w-7/12 p-10">
+                    <h4 class="text-2xl font-bold text-brandDark mb-6">Enquiry / Admission Form</h4>
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Student Name</label>
+                                <input type="text" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary outline-none transition" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                                <input type="tel" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary outline-none transition" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary outline-none transition" placeholder="student@example.com">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Current Class</label>
+                                <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary outline-none transition bg-white">
+                                    <option>Select Class</option>
+                                    <option>Class 10</option>
+                                    <option>Class 11</option>
+                                    <option>Class 12</option>
+                                    <option>Dropper/Repeater</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Target Exam</label>
+                                <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary outline-none transition bg-white">
+                                    <option>Select Target</option>
+                                    <option>JEE Main & Advanced</option>
+                                    <option>NEET UG</option>
+                                    <option>Foundation / Olympiads</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="button" class="w-full bg-brandPrimary text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition shadow-md mt-4">
+                            Submit Enquiry Request
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-3">We respect your privacy. Your details are safe with us.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-brandPrimary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-white rounded flex items-center justify-center text-brandDark font-black text-xs">
+                        LOGO
+                    </div>
+                    <span class="font-bold text-xl text-white">[Institute Name]</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-6 max-w-sm">Empowering students to achieve their academic goals with top-tier education infrastructure and unparalleled guidance.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brandPrimary transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brandPrimary transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brandPrimary transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brandAccent transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Our Courses</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Student Login</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Careers</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Visit Us</h4>
+                <address class="not-italic text-sm text-gray-400 space-y-2">
+                    <p><i class="fa-solid fa-location-dot mr-2 text-brandPrimary"></i> 123 Education Hub, Sector 4, City, State - 123456</p>
+                    <p><i class="fa-solid fa-phone mr-2 text-brandPrimary"></i> +91 98765 43210</p>
+                </address>
+            </div>
+        </div>
+        
+        <!-- Pitching Disclaimer / Agency Footer -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>&copy; 2026 [Institute Name]. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Digital Infrastructure & Lead Gen by <span class="font-bold text-gray-400">Feasibility Media</span></p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "cockroachcontrolboard",
+  "version": "1.0.0",
+  "description": "Cockroach Control Board - Counter Movement Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aryaveer667766/cockroachcontrolboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aryaveer667766/cockroachcontrolboard/issues"
+  },
+  "homepage": "https://github.com/Aryaveer667766/cockroachcontrolboard#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}

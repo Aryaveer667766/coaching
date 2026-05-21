@@ -3,459 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCB | The Saffron Youth Taskforce</title>
-    
-    <!-- Tailwind CSS -->
+    <title>CCB | Wake Up. Stop The Infestation.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Edgy Youth/Gaming Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        display: ['Anton', 'sans-serif'],
-                    },
                     colors: {
-                        ccb: {
-                            black: '#050505',
-                            dark: '#0a0a0a',
-                            gray: '#171717',
-                            saffron: '#FF671F', // Official India Saffron/Bhagwa
-                            yellow: '#FFB300', 
-                            white: '#FAFAFA',
-                        }
+                        'ccb-black': '#050505',
+                        'ccb-dark': '#111111',
+                        'ccb-saffron': '#FF4500', /* Aggressive, vibrant orange/saffron */
+                        'ccb-saffron-dim': 'rgba(255, 69, 0, 0.2)',
+                        'ccb-gray': '#888888',
+                    },
+                    fontFamily: {
+                        'loud': ['"Bebas Neue"', 'sans-serif'],
+                        'body': ['"Space Grotesk"', 'sans-serif'],
                     },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'glitch': 'glitch 1s linear infinite',
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 15s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
-                        },
-                        glitch: {
-                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
-                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
-                            '62%': { transform: 'translate(0,0) skew(5deg)' },
                         }
                     }
                 }
             }
         }
     </script>
-    
     <style>
         body {
             background-color: #050505;
-            color: #FAFAFA;
+            color: #ffffff;
             overflow-x: hidden;
         }
-
-        /* Dotted gaming background */
-        .dot-bg {
-            background-image: radial-gradient(#333 1px, transparent 1px);
-            background-size: 24px 24px;
+        
+        /* Brutalist borders and shadows */
+        .brutalist-card {
+            border: 2px solid #333;
+            box-shadow: 8px 8px 0px 0px #FF4500;
+            transition: all 0.2s ease-in-out;
+        }
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px 0px #FF4500;
         }
 
-        /* Caution Tape styling */
-        .caution-tape {
-            background: repeating-linear-gradient(
-                -45deg,
-                #FF671F,
-                #FF671F 20px,
-                #000000 20px,
-                #000000 40px
-            );
+        .brutalist-button {
+            border: 2px solid #FF4500;
+            background: #050505;
+            color: #FF4500;
+            box-shadow: 4px 4px 0px 0px #FF4500;
+            transition: all 0.1s ease;
+        }
+        .brutalist-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #FF4500;
         }
 
-        .text-outline {
-            -webkit-text-stroke: 1px #FF671F;
-            color: transparent;
-        }
-
-        /* Cyberpunk button hover */
-        .btn-glitch {
+        /* Glitch text effect for emphasis */
+        .glitch-text {
             position: relative;
         }
-        .btn-glitch::before {
-            content: '';
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #FF671F;
-            z-index: -1;
-            transition: transform 0.2s ease;
-            transform: translate(4px, 4px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
         }
-        .btn-glitch:hover::before {
-            transform: translate(0px, 0px);
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(7px, 9999px, 86px, 0); }
+            20% { clip: rect(65px, 9999px, 12px, 0); }
+            40% { clip: rect(93px, 9999px, 52px, 0); }
+            60% { clip: rect(21px, 9999px, 4px, 0); }
+            80% { clip: rect(4px, 9999px, 98px, 0); }
+            100% { clip: rect(83px, 9999px, 35px, 0); }
         }
 
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(255, 103, 31, 0.5);
-            border-color: #FF671F;
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
     </style>
 </head>
-<body class="antialiased selection:bg-ccb-saffron selection:text-black font-sans dot-bg">
+<body class="font-body antialiased selection:bg-ccb-saffron selection:text-white">
+    <div class="noise-bg"></div>
 
-    <nav class="fixed w-full z-50 bg-ccb-black/80 backdrop-blur-lg border-b border-ccb-saffron/20">
+    <!-- Scrolling Alert Marquee -->
+    <div class="w-full bg-ccb-saffron border-b-2 border-black overflow-hidden flex py-1 relative z-40">
+        <div class="whitespace-nowrap animate-marquee font-loud text-black text-xl tracking-wider flex space-x-8">
+            <span>⚠️ YOU ARE BEING MANIPULATED BY AN ALGORITHM ⚠️</span>
+            <span>WAKE UP.</span>
+            <span>14 MILLION FOLLOWERS? MORE LIKE 14 MILLION BOTS.</span>
+            <span>THE CJP IS A FOREIGN-BACKED PSY-OP.</span>
+            <span>STOP BEING AN NPC.</span>
+            <span>⚠️ YOU ARE BEING MANIPULATED BY AN ALGORITHM ⚠️</span>
+            <span>WAKE UP.</span>
+            <span>14 MILLION FOLLOWERS? MORE LIKE 14 MILLION BOTS.</span>
+            <span>THE CJP IS A FOREIGN-BACKED PSY-OP.</span>
+            <span>STOP BEING AN NPC.</span>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-40 top-[36px] bg-ccb-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-ccb-saffron flex items-center justify-center transform -skew-x-12 shadow-[0_0_15px_rgba(255,103,31,0.6)]">
-                        <i class="fa-solid fa-om text-black text-2xl transform skew-x-12"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <h1 class="font-display text-2xl text-white tracking-widest leading-none">CCB.</h1>
-                        <span class="text-[9px] text-ccb-saffron font-bold uppercase tracking-[0.3em]">Nation First Taskforce</span>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex space-x-8 font-bold text-xs uppercase tracking-[0.2em] text-gray-400">
-                    <a href="#reality" class="hover:text-ccb-saffron transition-colors">Vikas Check</a>
-                    <a href="#roach-types" class="hover:text-ccb-saffron transition-colors">Andolanjeevi DB</a>
-                    <a href="#agenda" class="hover:text-ccb-saffron transition-colors">The Chad Agenda</a>
-                </div>
-                
-                <a href="#report" class="btn-glitch bg-black border border-ccb-saffron text-ccb-saffron font-bold px-5 py-2 text-xs uppercase tracking-widest hover:text-white transition-colors">
-                    Report a Leftist
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex items-center gap-2">
+                    <span class="font-loud text-3xl text-ccb-saffron tracking-wide">CCB.</span>
+                    <span class="font-body text-xs font-bold text-ccb-gray tracking-[0.2em] hidden sm:block">THE COUNTER MOVEMENT</span>
                 </a>
+                <div class="flex gap-6 items-center">
+                    <a href="#expose" class="text-sm font-bold uppercase hover:text-ccb-saffron transition-colors">The Exposé</a>
+                    <a href="#bots" class="text-sm font-bold uppercase hover:text-ccb-saffron transition-colors">Bot Activity</a>
+                    <a href="https://www.instagram.com/cockroachcontrolboard/" target="_blank" class="brutalist-button px-4 py-2 text-sm font-bold uppercase flex items-center gap-2">
+                        <i class="fa-brands fa-instagram"></i> Join Us
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="pt-20 w-full overflow-hidden bg-ccb-saffron py-2 border-y-4 border-black">
-        <div class="whitespace-nowrap flex animate-marquee text-black font-display text-xl uppercase tracking-widest space-x-8">
-            <span>🚩 WARNING: UNEMPLOYED COMMIES DETECTED IN YOUR AREA</span>
-            <span>•</span>
-            <span>🚩 SYSTEM OVERRIDE: INITIATING AMRIT KAAL PROTOCOL</span>
-            <span>•</span>
-            <span>🚩 WARNING: HIGH LEVELS OF LEFTIST TEARS DETECTED</span>
-            <span>•</span>
-            <span>🚩 MISSION: TOUCH GRASS & LOOK AT THE NEW EXPRESSWAY</span>
-            <span>•</span>
-            <span>🚩 WARNING: UNEMPLOYED COMMIES DETECTED IN YOUR AREA</span>
-        </div>
-    </div>
-
-    <header class="relative pt-20 pb-32 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-ccb-saffron/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <main class="relative pt-32 pb-20 px-4 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] -z-10"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ccb-saffron/10 border border-ccb-saffron text-ccb-saffron text-xs font-bold mb-8 uppercase tracking-[0.2em]">
-                <span class="w-2 h-2 rounded-full bg-ccb-saffron animate-pulse-fast"></span>
-                Welcome to the New India
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block border border-ccb-saffron text-ccb-saffron px-4 py-1 text-xs font-bold tracking-[0.2em] uppercase mb-8 bg-ccb-saffron/10">
+                Declassifying the CJP Agenda
             </div>
             
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-display text-white uppercase tracking-wider mb-6 leading-[0.9] hover:animate-glitch">
-                Crying is a <span class="text-ccb-saffron">Trend.</span><br>
-                <span class="text-outline">Vikas is Forever.</span>
+            <h1 class="font-loud text-7xl md:text-[8rem] leading-[0.85] tracking-tight mb-6 uppercase">
+                They Sold You A <span class="text-ccb-saffron glitch-text" data-text="Revolution.">Revolution.</span><br>
+                You Bought A <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">Lie.</span>
             </h1>
             
-            <p class="mt-8 text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-medium leading-relaxed">
-                The <span class="text-white font-bold line-through decoration-ccb-saffron">Cockroach Janta Party</span> has 14M followers and <span class="text-ccb-saffron">zero contribution to the 5 Trillion Economy</span>. They hate development, they hate infrastructure, and they hate bathing. It's time to build the Vishwaguru.
+            <p class="font-body text-lg md:text-xl text-ccb-gray max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                The Cockroach Janta Party isn't a grassroots movement. It's a highly funded, algorithmically amplified psy-op designed to make Indian youth hate their own country. <strong class="text-white">You are not a rebel. You are a pawn.</strong>
             </p>
-            
-            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#agenda" class="bg-ccb-saffron text-black font-display text-xl py-4 px-10 transform -skew-x-12 hover:bg-white transition-all uppercase tracking-widest shadow-[0_0_30px_rgba(255,103,31,0.4)]">
-                    <div class="transform skew-x-12 flex items-center gap-3">
-                        <i class="fa-solid fa-gavel"></i> Join the Builders
-                    </div>
-                </a>
-                <a href="#reality" class="bg-transparent border-2 border-gray-700 text-white font-display text-xl py-4 px-10 transform -skew-x-12 hover:border-ccb-saffron hover:text-ccb-saffron transition-all uppercase tracking-widest">
-                    <div class="transform skew-x-12">
-                        Expose the Matrix
-                    </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#bots" class="brutalist-button px-8 py-4 font-bold tracking-widest uppercase text-lg w-full sm:w-auto text-center">
+                    See The Truth ↓
                 </a>
             </div>
-
-            <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-4xl mx-auto border-t border-ccb-saffron/20 pt-10">
-                <div>
-                    <div class="text-4xl font-display text-white">0.0%</div>
-                    <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2">CJP's Contribution to GDP</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-display text-ccb-saffron">14M+</div>
-                    <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2">Andolanjeevis Brainwashed</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-display text-white">100%</div>
-                    <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2">Use UPI While Hating Gov</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-display text-ccb-yellow">INF</div>
-                    <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2">Tears Shed over New Highways</div>
-                </div>
-            </div>
         </div>
-    </header>
+    </main>
 
-    <section id="reality" class="py-24 bg-ccb-dark border-t border-white/5 relative">
-        <div class="caution-tape h-2 w-full absolute top-0 left-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-7xl font-display text-white uppercase tracking-wide">The <span class="text-ccb-saffron">Vikas</span> Check</h2>
-                <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">Why is the CJP so angry? Because actual progress destroys their narrative. Let's break down their hypocrisy.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Check 1 -->
-                <div class="bg-black border border-white/10 p-8 rounded-xl card-hover relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-ccb-saffron/10 rounded-bl-full flex items-start justify-end p-3">
-                        <i class="fa-solid fa-train-tram text-ccb-saffron text-xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-2xl font-display text-white uppercase tracking-wide mb-4 mt-4">The Infrastructure Phobia</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        They cry about "poor infrastructure," but the moment a 10-lane expressway or a Vande Bharat train gets launched, they protest it because it ruined the "aesthetic vibes" of a barren patch of dirt.
-                    </p>
-                    <div class="mt-6 inline-block bg-white/5 px-3 py-1 rounded text-xs text-ccb-saffron font-bold uppercase tracking-widest">Logic: Left the Chat</div>
-                </div>
-
-                <!-- Check 2 -->
-                <div class="bg-black border border-white/10 p-8 rounded-xl card-hover relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-ccb-saffron/10 rounded-bl-full flex items-start justify-end p-3">
-                        <i class="fa-solid fa-qrcode text-ccb-saffron text-xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-2xl font-display text-white uppercase tracking-wide mb-4 mt-4">The Digital Hypocrite</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Tweets about how the "economy is collapsing" and "capitalism is evil" while scanning a UPI QR code at a tapri to buy sutta, using the cheapest 5G data in the world provided by Indian conglomerates.
-                    </p>
-                    <div class="mt-6 inline-block bg-white/5 px-3 py-1 rounded text-xs text-ccb-saffron font-bold uppercase tracking-widest">Irony Level: Peak</div>
-                </div>
-
-                <!-- Check 3 -->
-                <div class="bg-black border border-white/10 p-8 rounded-xl card-hover relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-ccb-saffron/10 rounded-bl-full flex items-start justify-end p-3">
-                        <i class="fa-solid fa-globe text-ccb-saffron text-xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-2xl font-display text-white uppercase tracking-wide mb-4 mt-4">Foreign Validation Simps</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        They will ignore actual on-ground development happening in their own city, but will treat a biased hit-piece written by a foreign newspaper as the absolute gospel truth of the universe.
-                    </p>
-                    <div class="mt-6 inline-block bg-white/5 px-3 py-1 rounded text-xs text-ccb-saffron font-bold uppercase tracking-widest">Status: Colonized Mind</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="roach-types" class="py-24 bg-ccb-black border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="text-5xl font-display text-white uppercase tracking-wide">Andolanjeevi <span class="text-ccb-saffron">Database</span></h2>
-                    <p class="text-gray-400 mt-2">Identify the CJP Leftists in your natural habitat.</p>
-                </div>
-                <div class="bg-red-900/20 border border-red-500/50 px-4 py-2 rounded text-red-500 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                    <i class="fa-solid fa-radar"></i> Libbu Scanners Active
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Profile A -->
-                <div class="flex flex-col sm:flex-row bg-ccb-gray border border-white/10 rounded-lg overflow-hidden card-hover">
-                    <div class="sm:w-1/3 bg-black flex flex-col items-center justify-center p-8 border-b sm:border-b-0 sm:border-r border-white/10">
-                        <i class="fa-solid fa-mug-hot text-5xl text-gray-600 mb-4"></i>
-                        <span class="text-center text-xs font-bold text-gray-500 uppercase tracking-widest">Threat Level: Annoying</span>
-                    </div>
-                    <div class="p-6 sm:w-2/3">
-                        <h4 class="text-2xl font-display text-white uppercase mb-1">The South Delhi / Bombay Marxist</h4>
-                        <p class="text-ccb-saffron text-xs font-bold uppercase tracking-widest mb-4">Primary Weapon: Daddy's Credit Card</p>
-                        <p class="text-gray-400 text-sm mb-4">Wears a Che Guevara t-shirt bought from H&M. Tweets about "eating the rich" from a ₹1.5L iPhone while sipping a ₹400 artisanal matcha latte. Funded entirely by their capitalist father's business.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">"Systemic Issue"</span>
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">Uses words like "Fascist"</span>
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">Has AC in every room</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Profile B -->
-                <div class="flex flex-col sm:flex-row bg-ccb-gray border border-white/10 rounded-lg overflow-hidden card-hover">
-                    <div class="sm:w-1/3 bg-black flex flex-col items-center justify-center p-8 border-b sm:border-b-0 sm:border-r border-white/10">
-                        <i class="fa-brands fa-x-twitter text-5xl text-gray-600 mb-4"></i>
-                        <span class="text-center text-xs font-bold text-gray-500 uppercase tracking-widest">Threat Level: Brainwashed</span>
-                    </div>
-                    <div class="p-6 sm:w-2/3">
-                        <h4 class="text-2xl font-display text-white uppercase mb-1">The Professional Doom Scroller</h4>
-                        <p class="text-ccb-saffron text-xs font-bold uppercase tracking-widest mb-4">Primary Weapon: WhatsApp Forwards</p>
-                        <p class="text-gray-400 text-sm mb-4">Wakes up angry at the government. Goes to sleep angry at the government. Believes the nation is collapsing every single day because an anonymous troll account told them so. Has never voted.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">Chronically Online</span>
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">0 Taxes Paid</span>
-                            <span class="px-2 py-1 bg-black rounded border border-white/10 text-[10px] text-gray-300">Unemployed</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="agenda" class="py-24 bg-ccb-saffron text-black relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-7xl font-display uppercase tracking-wide">The <span class="text-white text-outline">Nation First</span> Agenda</h2>
-                <p class="font-bold mt-4 text-lg uppercase tracking-widest max-w-2xl mx-auto">Drop the excuses. Build the Vishwaguru.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
-                <div class="bg-black p-8 transform hover:-translate-y-2 transition-transform shadow-[10px_10px_0px_0px_rgba(255,255,255,0.2)]">
-                    <div class="text-6xl font-display text-white/20 mb-[-20px]">01</div>
-                    <h3 class="text-2xl font-display uppercase mb-4 text-ccb-saffron">Sanatan & Startups</h3>
-                    <p class="text-sm text-gray-400">
-                        We embrace our civilizational roots while dominating the modern tech ecosystem. You don't have to hate your culture to be modern. We build unicorns and we preserve heritage.
-                    </p>
-                </div>
+    <section id="bots" class="py-20 bg-ccb-dark border-t border-b border-white/10 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
                 
-                <div class="bg-black p-8 transform hover:-translate-y-2 transition-transform shadow-[10px_10px_0px_0px_rgba(255,255,255,0.2)]">
-                    <div class="text-6xl font-display text-white/20 mb-[-20px]">02</div>
-                    <h3 class="text-2xl font-display uppercase mb-4 text-ccb-saffron">Hustle > Hate</h3>
-                    <p class="text-sm text-gray-400">
-                        While CJP is busy organizing an online boycott of a brand over a 5-year-old tweet, we are upskilling, grinding, and paying the taxes that fund their subsidised liberal arts degrees.
+                <!-- The Big Lie -->
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-loud text-5xl md:text-7xl text-white mb-4 uppercase">The 14 Million <span class="text-ccb-saffron">Myth</span></h2>
+                    <p class="text-ccb-gray mb-8 text-lg">
+                        CJP claims to have the voice of the youth. Our independent data analysis of their 14 million Instagram followers tells a very different, deeply sinister story. Who is really liking those memes?
                     </p>
-                </div>
-
-                <div class="bg-black p-8 transform hover:-translate-y-2 transition-transform shadow-[10px_10px_0px_0px_rgba(255,255,255,0.2)]">
-                    <div class="text-6xl font-display text-white/20 mb-[-20px]">03</div>
-                    <h3 class="text-2xl font-display uppercase mb-4 text-ccb-saffron">Duties First</h3>
-                    <p class="text-sm text-gray-400">
-                        You want the rights of a citizen? Fulfill the duties of one first. Stop demanding freebies and crying about "systemic oppression" when you contribute nothing to the nation's growth engine. 
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="report" class="py-24 bg-ccb-dark relative">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-black border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative p-1">
-                <div class="absolute inset-0 bg-gradient-to-r from-ccb-saffron via-red-500 to-ccb-saffron opacity-20 blur-xl"></div>
-                
-                <div class="relative bg-ccb-black p-8 md:p-12 rounded-xl z-10 border border-white/5">
-                    <div class="text-center mb-10">
-                        <i class="fa-solid fa-crosshairs text-4xl text-ccb-saffron mb-4"></i>
-                        <h2 class="text-4xl font-display text-white uppercase tracking-wide">Report an NPC</h2>
-                        <p class="text-gray-400 text-sm mt-2">Spotted a CJP member complaining about the economy while sitting in a cafe? Drop their details. We'll send them a reality check.</p>
-                    </div>
-
-                    <form id="roach-report" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Target Handle / Name</label>
-                                <input type="text" required class="w-full bg-ccb-dark border border-white/10 text-white px-4 py-3 rounded focus:outline-none focus:border-ccb-saffron focus:ring-1 focus:ring-ccb-saffron transition-all font-sans text-sm" placeholder="@marxist_rebel_99">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Location of Infestation</label>
-                                <select class="w-full bg-ccb-dark border border-white/10 text-white px-4 py-3 rounded focus:outline-none focus:border-ccb-saffron transition-all font-sans text-sm appearance-none">
-                                    <option>Instagram Comments (High Toxicity)</option>
-                                    <option>X / Twitter (Echo Chamber)</option>
-                                    <option>JNU / Arts Campus</option>
-                                    <option>Overpriced South Delhi Cafe</option>
-                                </select>
-                            </div>
-                        </div>
-
+                    
+                    <div class="space-y-6">
+                        <!-- Stat Bar 1 -->
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Identify the Coping Mechanism</label>
-                            <select class="w-full bg-ccb-dark border border-white/10 text-white px-4 py-3 rounded focus:outline-none focus:border-ccb-saffron transition-all font-sans text-sm appearance-none">
-                                <option>Calling everything "Fascism" because they are losing arguments</option>
-                                <option>Blaming Adani/Ambani for their own unemployment</option>
-                                <option>Crying about train delays but dodging ticket fares</option>
-                                <option>Waiting for foreign YouTubers to validate their opinions</option>
-                            </select>
+                            <div class="flex justify-between text-sm font-bold uppercase mb-2">
+                                <span class="text-ccb-saffron">Hostile Foreign IP Addresses (Pak/BD Proxies)</span>
+                                <span>62%</span>
+                            </div>
+                            <div class="w-full bg-black h-4 border border-white/20 p-[1px]">
+                                <div class="bg-ccb-saffron h-full" style="width: 62%;"></div>
+                            </div>
                         </div>
                         
-                        <div class="flex items-start gap-3 mt-6">
-                            <input type="checkbox" required id="confirm" class="mt-1 w-4 h-4 accent-ccb-saffron bg-ccb-dark border-gray-600 rounded">
-                            <label for="confirm" class="text-xs text-gray-400 leading-relaxed">
-                                I confirm this person is a CJP NPC acting on algorithmic impulses. I am a Chad who supports Vikas and Nation First policies.
-                            </label>
+                        <!-- Stat Bar 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-bold uppercase mb-2">
+                                <span class="text-white">Automated Bot Farms (Engagement Farming)</span>
+                                <span>28%</span>
+                            </div>
+                            <div class="w-full bg-black h-4 border border-white/20 p-[1px]">
+                                <div class="bg-white h-full" style="width: 28%;"></div>
+                            </div>
                         </div>
 
-                        <button type="submit" class="w-full btn-glitch bg-black border border-ccb-saffron text-ccb-saffron hover:text-white font-display text-2xl py-4 mt-8 transition-colors uppercase tracking-widest">
-                            Deploy Reality Check
-                        </button>
-                    </form>
+                        <!-- Stat Bar 3 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-bold uppercase mb-2">
+                                <span class="text-ccb-gray">Actually Real (But Manipulated) Indian Youth</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="w-full bg-black h-4 border border-white/20 p-[1px]">
+                                <div class="bg-ccb-gray h-full" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Element -->
+                <div class="w-full md:w-1/2 relative">
+                    <div class="brutalist-card bg-ccb-black p-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest border-b-2 border-l-2 border-black">Classified Data</div>
+                        <i class="fas fa-network-wired text-6xl text-ccb-saffron/20 absolute -bottom-4 -right-4"></i>
+                        <h3 class="font-loud text-3xl mb-4 text-white uppercase">The Toolkit Exposed</h3>
+                        <ul class="space-y-4 text-sm text-gray-300 font-mono">
+                            <li class="flex items-start gap-3 border-b border-white/10 pb-3">
+                                <span class="text-ccb-saffron">></span>
+                                <span><strong>PHASE 1:</strong> Identify localized unemployment anxiety.</span>
+                            </li>
+                            <li class="flex items-start gap-3 border-b border-white/10 pb-3">
+                                <span class="text-ccb-saffron">></span>
+                                <span><strong>PHASE 2:</strong> Weaponize memes to create a sense of national failure, completely ignoring massive infrastructure/GDP growth.</span>
+                            </li>
+                            <li class="flex items-start gap-3 border-b border-white/10 pb-3">
+                                <span class="text-ccb-saffron">></span>
+                                <span><strong>PHASE 3:</strong> Import engagement via foreign bot networks to trigger Instagram's algorithm.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 animate-pulse-slow">></span>
+                                <span class="text-white"><strong>RESULT:</strong> Indian youth turning against their own nation's progress.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black border-t border-white/10 py-12 text-center relative overflow-hidden">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-ccb-saffron/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="mb-8 flex justify-center gap-4">
-                <div class="w-12 h-12 bg-ccb-dark flex items-center justify-center rounded-full border border-white/10 hover:border-ccb-saffron hover:text-ccb-saffron transition-colors cursor-pointer shadow-lg">
-                    <i class="fa-brands fa-x-twitter text-xl"></i>
+    <section id="expose" class="py-24 bg-ccb-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-loud text-5xl md:text-7xl text-white uppercase mb-2">Vikas <span class="text-ccb-gray text-4xl">vs</span> Vinaash</h2>
+                <p class="text-ccb-gray font-bold tracking-widest uppercase">Choose Your Side</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- The Roach (CJP) -->
+                <div class="border-2 border-white/10 bg-ccb-dark p-8 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6 border-b border-white/10 pb-4">
+                        <h3 class="font-loud text-4xl text-gray-400">The CJP Follower</h3>
+                        <span class="bg-gray-800 text-gray-400 text-xs px-2 py-1 uppercase font-bold">NPC Status</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-center gap-3"><i class="fas fa-times text-red-900"></i> Complains about infrastructure while riding the Vande Bharat.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-times text-red-900"></i> Thinks sharing a sarcastic reel is "political activism".</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-times text-red-900"></i> Manipulated by foreign agendas without realizing it.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-times text-red-900"></i> Ultimate goal: Go viral by hating the country.</li>
+                    </ul>
                 </div>
-                <a href="https://www.instagram.com/cockroachcontrolboard/" target="_blank" class="w-12 h-12 bg-ccb-dark flex items-center justify-center rounded-full border border-white/10 hover:border-ccb-saffron hover:text-ccb-saffron transition-colors cursor-pointer shadow-lg">
+
+                <!-- The Chad (CCB) -->
+                <div class="brutalist-card bg-black p-8 relative">
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-ccb-saffron border-2 border-black rotate-45 z-10"></div>
+                    <div class="flex justify-between items-start mb-6 border-b border-ccb-saffron/30 pb-4">
+                        <h3 class="font-loud text-4xl text-ccb-saffron">The CCB Chad</h3>
+                        <span class="bg-ccb-saffron text-black text-xs px-2 py-1 uppercase font-bold">Awakened</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-white">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-ccb-saffron"></i> Sees through the algorithm's anti-national bias.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-ccb-saffron"></i> Focuses on upskilling and contributing to a $5T economy.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-ccb-saffron"></i> Defends digital sovereignty from proxy bot attacks.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-ccb-saffron"></i> Ultimate goal: Nation building.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-ccb-saffron text-black relative overflow-hidden">
+        <!-- Abstract background pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), repeating-linear-gradient(45deg, #000 25%, #050505 25%, #050505 75%, #000 75%, #000); background-position: 0 0, 10px 10px; background-size: 20px 20px;"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <i class="fas fa-shoe-prints text-6xl mb-6 transform -rotate-12"></i>
+            <h2 class="font-loud text-6xl md:text-8xl mb-6 uppercase leading-none">Grab The Chappal.</h2>
+            <p class="font-body text-xl font-bold mb-10 max-w-2xl mx-auto">
+                The internet is a battlefield. Don't let foreign bots and manipulated NPCs dictate the narrative of our nation. It's time to clean house.
+            </p>
+            
+            <a href="https://www.instagram.com/cockroachcontrolboard/" target="_blank" class="inline-flex items-center gap-3 bg-black text-ccb-saffron hover:text-white px-10 py-5 font-loud text-3xl uppercase tracking-wider transition-all hover:scale-105 border-4 border-black hover:border-white shadow-[8px_8px_0px_rgba(0,0,0,0.5)]">
+                <i class="fa-brands fa-instagram"></i> Join The Resistance
+            </a>
+            <p class="mt-6 text-sm font-bold uppercase tracking-widest opacity-80">Follow the official CCB Taskforce</p>
+        </div>
+    </section>
+
+    <footer class="bg-ccb-black border-t-2 border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-loud text-3xl text-white">CCB.</span>
+            </div>
+            
+            <div class="text-ccb-gray text-sm text-center md:text-left">
+                <strong>WARNING:</strong> This is a satirical counter-movement. We build, we don't whine.<br>
+                &copy; 2026 The Real Youth Initiative.
+            </div>
+
+            <div class="flex gap-4">
+                <a href="https://www.instagram.com/cockroachcontrolboard/" target="_blank" class="w-12 h-12 bg-ccb-dark border-2 border-white/10 flex items-center justify-center text-white hover:border-ccb-saffron hover:text-ccb-saffron transition-colors">
                     <i class="fa-brands fa-instagram text-xl"></i>
                 </a>
             </div>
-            <h2 class="font-display text-3xl text-white tracking-widest mb-2">CCB TASKFORCE</h2>
-            <p class="text-[10px] text-ccb-saffron font-bold uppercase tracking-[0.2em] mb-6">Nation First. Development Always.</p>
-            
-            <p class="text-xs text-gray-600 max-w-2xl mx-auto font-sans">
-                DISCLAIMER: The Cockroach Control Board (CCB) is a satirical counter-movement mocking the "Cockroach Janta Party" (CJP) trend. We just want the youth to stop crying online, embrace national development, and get to work. If you are offended by this website, you are exactly who it was built for. Jai Hind. 🇮🇳
-            </p>
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="modal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md">
-        <div class="bg-ccb-dark border-2 border-ccb-saffron max-w-md w-full p-8 text-center relative shadow-[0_0_50px_rgba(255,103,31,0.3)]">
-            <div class="w-20 h-20 bg-ccb-saffron text-black rounded-full flex items-center justify-center mx-auto mb-6 transform -skew-x-12">
-                <i class="fa-solid fa-flag text-4xl transform skew-x-12"></i>
-            </div>
-            <h3 class="text-4xl font-display text-white uppercase mb-4 tracking-wide">Target Locked</h3>
-            <p class="text-gray-400 text-sm mb-8 font-sans">
-                Libbu reported successfully. We are actively overriding their timeline with infrastructure updates, GDP growth charts, and job applications. 
-            </p>
-            <button onclick="closeModal()" class="w-full bg-black border border-ccb-saffron text-ccb-saffron font-bold py-3 uppercase text-sm tracking-[0.2em] hover:bg-ccb-saffron hover:text-black transition-colors font-sans">
-                Return to Grinding
-            </button>
-        </div>
-    </div>
-
-    <script>
-        // Form submission logic
-        const form = document.getElementById('roach-report');
-        const modal = document.getElementById('modal');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            modal.classList.remove('hidden');
-        });
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            form.reset();
-        }
-
-        // Add slight parallax to floating glitch text
-        document.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-            const title = document.querySelector('h1');
-            if(title) {
-                title.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            }
-        });
-    </script>
 </body>
 </html>
